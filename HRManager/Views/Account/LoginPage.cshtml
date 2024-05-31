@@ -1,0 +1,82 @@
+﻿@using HRManager.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HRMS admin template</title>
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/assets/css/line-awesome.min.css" rel="stylesheet" />
+    <link href="~/assets/css/material.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+</head>
+<body class="account-page">
+
+    <div class="main-wrapper">
+        <div class="account-content">
+            <a href="job-list.html" class="btn btn-primary apply-btn">Apply Job</a>
+            <div class="container">
+
+                <div class="account-logo">
+                    <img src="~/assets/img/logo2.png" alt="HR Manager">
+                </div>
+
+                <div class="account-box">
+                    <div class="account-wrapper">
+                        <h3 class="account-title">Login</h3>
+                        <p class="account-subtitle">Access to our dashboard</p>
+
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h4>Use a local account to log in.</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="input-block mb-4">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
+                                <div class="input-block mb-4">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="input-block mb-4">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
+                                <div class="input-block mb-4">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                           
+                            <div class="input-block mb-4 text-center">
+                                <button class="btn btn-primary account-btn" type="submit">Login</button>
+                            </div>
+                            <div class="account-footer">
+                                <p>Don't have an account yet? <a href="register.html">Register</a></p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/assets/js/jquery-3.7.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/cdn/rocket-loader.min.js"></script>
+
+
+</body>
+</html>
