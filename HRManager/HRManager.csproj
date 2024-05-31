@@ -185,11 +185,13 @@
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\line-awesome.min.css" />
     <Content Include="assets\css\material.css" />
+    <Content Include="assets\css\sidebar.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\img\logo2.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\bootstrap.bundle.min.js" />
     <Content Include="assets\js\jquery-3.7.1.min.js" />
+    <Content Include="assets\js\sidebar.js" />
     <Content Include="assets\plugins\fontawesome\css\all.min.css" />
     <Content Include="assets\plugins\fontawesome\css\fontawesome.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
