@@ -1,0 +1,47 @@
+﻿@model HRManager.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Register";
+}
+
+<h3 class="account-title">Register</h3>
+<p class="account-subtitle">Access to our dashboard</p>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+<div class="input-block mb-4">
+    <label for="@Html.NameFor(m => m.Email)" class="col-form-label">
+        @Html.DisplayNameFor(m => m.Email)
+        <span class="mandatory">*</span>
+    </label>
+    <div class="input-block mb-4">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+</div>
+    <div class="input-block mb-4">
+        <label for="@Html.NameFor(m => m.Password)" class="col-form-label">
+            @Html.DisplayNameFor(m => m.Password)
+            <span class="mandatory">*</span>
+        </label>
+        <div class="input-block mb-4">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="input-block mb-4">
+        <label for="@Html.NameFor(m => m.ConfirmPassword)" class="col-form-label">
+            @Html.DisplayNameFor(m => m.ConfirmPassword)
+            <span class="mandatory">*</span>
+        </label>
+        <div class="input-block mb-4">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="input-block mb-4 text-center">
+        <button class="btn btn-primary account-btn" type="submit">Register</button>
+    </div>
+}
+
