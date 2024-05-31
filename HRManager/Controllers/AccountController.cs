@@ -22,18 +22,58 @@ namespace HRManager.Controllers
         {
         }
 
-        public ActionResult RegisterPage()
-        {
-            return View();
-        }
-
-
-
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
+
+        [HttpGet]
+        public ActionResult UpdateProfile()
+        {
+            var userId = User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
+
+            var model = new UpdateProfileViewModel
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                EmployeeID = user.EmployeeID,
+                JoiningDate = user.JoiningDate,
+                Phone = user.Phone,
+                Company = user.Company,
+                Department = user.Department,
+                Designation = user.Designation
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProfile(UpdateProfileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = User.Identity.GetUserId();
+                var user = UserManager.FindById(userId);
+
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.EmployeeID = model.EmployeeID;
+                user.JoiningDate = model.JoiningDate;
+                user.Phone = model.Phone;
+                user.Company = model.Company;
+                user.Department = model.Department;
+                user.Designation = model.Designation;
+
+                UserManager.Update(user);
+
+                return RedirectToAction("Profile");
+            }
+
+            return View(model);
+        }
+
 
         public ApplicationSignInManager SignInManager
         {
