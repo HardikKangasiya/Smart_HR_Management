@@ -11,6 +11,7 @@ using HRManager.Models;
 
 namespace HRManager.Controllers
 {
+    [Authorize]
     public class DepartmentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,21 +20,6 @@ namespace HRManager.Controllers
         public async Task<ActionResult> Index()
         {
             return View(await db.DepartmentModels.ToListAsync());
-        }
-
-        // GET: Department/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DepartmentModel departmentModel = await db.DepartmentModels.FindAsync(id);
-            if (departmentModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(departmentModel);
         }
 
         // GET: Department/Create
