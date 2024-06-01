@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\HolidayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,9 +188,18 @@
     <Compile Include="Migrations\202406011004339_Added Department Model.Designer.cs">
       <DependentUpon>202406011004339_Added Department Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406011406216_HolidayModel added.cs" />
+    <Compile Include="Migrations\202406011406216_HolidayModel added.Designer.cs">
+      <DependentUpon>202406011406216_HolidayModel added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406011448226_Datetime field updated for Holiday.cs" />
+    <Compile Include="Migrations\202406011448226_Datetime field updated for Holiday.Designer.cs">
+      <DependentUpon>202406011448226_Datetime field updated for Holiday.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\HolidayModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -287,6 +297,11 @@
     <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Holiday\Create.cshtml" />
+    <Content Include="Views\Holiday\Delete.cshtml" />
+    <Content Include="Views\Holiday\Details.cshtml" />
+    <Content Include="Views\Holiday\Edit.cshtml" />
+    <Content Include="Views\Holiday\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +342,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406011004339_Added Department Model.resx">
       <DependentUpon>202406011004339_Added Department Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406011406216_HolidayModel added.resx">
+      <DependentUpon>202406011406216_HolidayModel added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406011448226_Datetime field updated for Holiday.resx">
+      <DependentUpon>202406011448226_Datetime field updated for Holiday.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

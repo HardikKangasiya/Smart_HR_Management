@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace HRManager.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmployeeID { get; set; }
+
+        [DataType(DataType.DateTime)]
         public DateTime JoiningDate { get; set; }
         public string Phone { get; set; }
         public string Company { get; set; }
@@ -41,6 +44,11 @@ namespace HRManager.Models
                 .Property(u => u.JoiningDate)
                 .HasColumnType("datetime2");
 
+            // Explicitly map HolidayDate to datetime2
+            modelBuilder.Entity<HolidayModel>()
+                .Property(h => h.HolidayDate)
+                .HasColumnType("datetime2");
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -49,6 +57,7 @@ namespace HRManager.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<HRManager.Models.DepartmentModel> DepartmentModels { get; set; }
+        public DbSet<HRManager.Models.DepartmentModel> DepartmentModels { get; set; }
+        public DbSet<HRManager.Models.HolidayModel> HolidayModels { get; set; }
     }
 }
