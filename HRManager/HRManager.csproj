@@ -169,22 +169,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202405310817065_InitialCreate.cs" />
-    <Compile Include="Migrations\202405310817065_InitialCreate.Designer.cs">
-      <DependentUpon>202405310817065_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202406010852097_InitialMigrationWithCustomProfile.cs" />
+    <Compile Include="Migrations\202406010852097_InitialMigrationWithCustomProfile.Designer.cs">
+      <DependentUpon>202406010852097_InitialMigrationWithCustomProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202405311844142_MigrationWithCustomProfileFields.cs" />
-    <Compile Include="Migrations\202405311844142_MigrationWithCustomProfileFields.Designer.cs">
-      <DependentUpon>202405311844142_MigrationWithCustomProfileFields.cs</DependentUpon>
+    <Compile Include="Migrations\202406010906143_changed joining date field type.cs" />
+    <Compile Include="Migrations\202406010906143_changed joining date field type.Designer.cs">
+      <DependentUpon>202406010906143_changed joining date field type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406011004339_Added Department Model.cs" />
+    <Compile Include="Migrations\202406011004339_Added Department Model.Designer.cs">
+      <DependentUpon>202406011004339_Added Department Model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -278,6 +283,11 @@
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Account\RegisterPage.cshtml" />
     <Content Include="Views\Account\UpdateProfile.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,11 +320,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405310817065_InitialCreate.resx">
-      <DependentUpon>202405310817065_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202406010852097_InitialMigrationWithCustomProfile.resx">
+      <DependentUpon>202406010852097_InitialMigrationWithCustomProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405311844142_MigrationWithCustomProfileFields.resx">
-      <DependentUpon>202405311844142_MigrationWithCustomProfileFields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202406010906143_changed joining date field type.resx">
+      <DependentUpon>202406010906143_changed joining date field type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406011004339_Added Department Model.resx">
+      <DependentUpon>202406011004339_Added Department Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

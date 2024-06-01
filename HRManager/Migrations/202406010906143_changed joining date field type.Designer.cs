@@ -7,13 +7,13 @@ namespace HRManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class MigrationWithCustomProfileFields : IMigrationMetadata
+    public sealed partial class changedjoiningdatefieldtype : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MigrationWithCustomProfileFields));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changedjoiningdatefieldtype));
         
         string IMigrationMetadata.Id
         {
-            get { return "202405311844142_MigrationWithCustomProfileFields"; }
+            get { return "202406010906143_changed joining date field type"; }
         }
         
         string IMigrationMetadata.Source

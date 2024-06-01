@@ -30,13 +30,25 @@ namespace HRManager.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CustomConnection", throwIfV1Schema: false)
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Explicitly map JoiningDate to datetime2
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(u => u.JoiningDate)
+                .HasColumnType("datetime2");
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<HRManager.Models.DepartmentModel> DepartmentModels { get; set; }
     }
 }

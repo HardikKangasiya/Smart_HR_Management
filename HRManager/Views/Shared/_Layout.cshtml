@@ -29,28 +29,30 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+
                 <li class="sidebar-item">
-                    <a href="@Url.Action("Employees", "Home")" class="sidebar-link">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                       data-bs-target="#employee" aria-expanded="false" aria-controls="employee">
                         <i class="lni lni-user"></i>
                         <span>Employees</span>
                     </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="#auth" class="sidebar-link collapsed has-dropdown" data-toggle="collapse"
-                       aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
-                        <span>Auth</span>
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse">
+                    <ul id="employee" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
+                            <a href="#" class="sidebar-link">All Employees</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
+                            <a href="#" class="sidebar-link">Holidays</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Departments</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Designations</a>
                         </li>
                     </ul>
                 </li>
+
+               
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">

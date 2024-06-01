@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "HRManager.Models.ApplicationDbContext";
         }
 
         protected override void Seed(HRManager.Models.ApplicationDbContext context)

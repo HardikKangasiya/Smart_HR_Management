@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialMigrationWithCustomProfile : DbMigration
     {
         public override void Up()
         {
@@ -35,6 +35,14 @@
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        EmployeeID = c.String(),
+                        JoiningDate = c.DateTime(nullable: false),
+                        Phone = c.String(),
+                        Company = c.String(),
+                        Department = c.String(),
+                        Designation = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
