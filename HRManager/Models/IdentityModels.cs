@@ -59,5 +59,7 @@ namespace HRManager.Models
 
         public DbSet<HRManager.Models.DepartmentModel> DepartmentModels { get; set; }
         public DbSet<HRManager.Models.HolidayModel> HolidayModels { get; set; }
+
+        public DbSet<HRManager.Models.DesignationModel> DesignationModels { get; set; }
     }
 }

@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DesignationController.cs" />
     <Compile Include="Controllers\HolidayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -196,9 +197,18 @@
     <Compile Include="Migrations\202406011448226_Datetime field updated for Holiday.Designer.cs">
       <DependentUpon>202406011448226_Datetime field updated for Holiday.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406020706001_Designation Added.cs" />
+    <Compile Include="Migrations\202406020706001_Designation Added.Designer.cs">
+      <DependentUpon>202406020706001_Designation Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406020748488_changed type of Department to string in Designation.cs" />
+    <Compile Include="Migrations\202406020748488_changed type of Department to string in Designation.Designer.cs">
+      <DependentUpon>202406020748488_changed type of Department to string in Designation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\DesignationModel.cs" />
     <Compile Include="Models\HolidayModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -275,8 +285,6 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -299,9 +307,13 @@
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Holiday\Create.cshtml" />
     <Content Include="Views\Holiday\Delete.cshtml" />
-    <Content Include="Views\Holiday\Details.cshtml" />
     <Content Include="Views\Holiday\Edit.cshtml" />
     <Content Include="Views\Holiday\Index.cshtml" />
+    <Content Include="Views\Designation\Create.cshtml" />
+    <Content Include="Views\Designation\Delete.cshtml" />
+    <Content Include="Views\Designation\Details.cshtml" />
+    <Content Include="Views\Designation\Edit.cshtml" />
+    <Content Include="Views\Designation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -348,6 +360,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406011448226_Datetime field updated for Holiday.resx">
       <DependentUpon>202406011448226_Datetime field updated for Holiday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406020706001_Designation Added.resx">
+      <DependentUpon>202406020706001_Designation Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406020748488_changed type of Department to string in Designation.resx">
+      <DependentUpon>202406020748488_changed type of Department to string in Designation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

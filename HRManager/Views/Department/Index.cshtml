@@ -26,7 +26,8 @@
             <td>@item.Index</td>
             <td>@Html.DisplayFor(modelItem => item.Value.DepartmentName)</td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Value.DepartmentID }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.Value.DepartmentID }, new { @class = "btn btn-primary" })
+                &nbsp; <!-- Add non-breaking space -->
                 @Html.ActionLink("Delete", "Delete", new { id = item.Value.DepartmentID }, new { @class = "btn btn-danger" })
             </td>
         </tr>

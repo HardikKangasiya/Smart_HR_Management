@@ -9,7 +9,6 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(HRManager.Models.ApplicationDbContext context)

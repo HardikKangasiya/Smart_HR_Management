@@ -1,4 +1,4 @@
-﻿@model HRManager.Models.HolidayModel
+﻿@model HRManager.Models.DesignationModel
 
 @{
     ViewBag.Title = "Delete";
@@ -11,19 +11,18 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.HolidayName)
+            @Html.DisplayNameFor(model => model.DesignationName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HolidayName)
+            @Html.DisplayFor(model => model.DesignationName)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.HolidayDate)
+            @Html.DisplayNameFor(model => model.Department)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HolidayDate)
+            @Html.DisplayFor(model => model.Department)
         </dd>
 
     </dl>
@@ -32,7 +31,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            &nbsp;
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

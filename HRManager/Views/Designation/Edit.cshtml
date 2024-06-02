@@ -1,0 +1,53 @@
+﻿@model HRManager.Models.DesignationModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="d-flex justify-content-center align-items-baseline" style="height: 100vh;">
+
+    <div class="col-md-6">
+        <h2>Edit</h2>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DesignationID)
+
+        <div class="form-group">
+            <label class="control-label"><strong>@Html.DisplayNameFor(model => model.DesignationName)</strong> <span class="text-danger">*</span></label>
+            <div>
+                @Html.EditorFor(model => model.DesignationName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DesignationName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label"><strong>@Html.DisplayNameFor(model => model.Department)</strong> <span class="text-danger">*</span></label>
+            <div>
+                @Html.DropDownListFor(model => model.Department, (SelectList)ViewBag.CustomDepartment, "Select a Department", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Save" class="btn btn-success" style="width: 100%;" />
+                <br />
+                <br />
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
