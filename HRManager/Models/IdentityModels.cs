@@ -44,6 +44,10 @@ namespace HRManager.Models
                 .Property(u => u.JoiningDate)
                 .HasColumnType("datetime2");
 
+            modelBuilder.Entity<Employee>()
+                .Property(u => u.JoiningDate)
+                .HasColumnType("datetime2");
+
             // Explicitly map HolidayDate to datetime2
             modelBuilder.Entity<HolidayModel>()
                 .Property(h => h.HolidayDate)
@@ -61,5 +65,7 @@ namespace HRManager.Models
         public DbSet<HRManager.Models.HolidayModel> HolidayModels { get; set; }
 
         public DbSet<HRManager.Models.DesignationModel> DesignationModels { get; set; }
+
+        public DbSet<HRManager.Models.Employee> Employee { get; set; }
     }
 }

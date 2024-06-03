@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HRManager.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<style>
+    .card {
+        position: relative; /* Ensure the card is the reference for popover positioning */
+    }
+
+        .card .popover {
+            max-width: 200px; /* Adjust this value as needed */
+        }
+
+    .lni.lni-more-alt {
+        transform: rotate(90deg);
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card text-center" style="width: 12rem;">
+                    <div class="text-right p-2">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" id="dropdownMenuButton">
+                                <i class="lni lni-more-alt"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="@Url.Action("Edit", new { id = item.EmployeeID })">Edit</a>
+                                <a class="dropdown-item" href="@Url.Action("Delete", new { id = item.EmployeeID })">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="@Url.Action("GetProfilePicture", new { employeeId = item.EmployeeID })" alt="Profile Picture" class="card-img rounded-circle p-4" />
+                    <div class="card-body">
+                        <h5 class="card-title font-weight-bold">@item.Username</h5>
+                        <p class="card-text">@item.Designation</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Show the dropdown menu when the icon is clicked
+        $('.dropdown-toggle').on('click', function (event) {
+            event.stopPropagation();
+            $(this).parent().find('.dropdown-menu').toggle();
+        });
+
+        // Hide the dropdown menu when clicked anywhere else
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.dropdown').length) {
+                $('.dropdown-menu').hide();
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+

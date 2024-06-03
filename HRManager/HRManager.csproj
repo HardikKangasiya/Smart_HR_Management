@@ -171,9 +171,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DesignationController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HolidayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="CustomValidation\IntegerString.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,10 +207,35 @@
     <Compile Include="Migrations\202406020748488_changed type of Department to string in Designation.Designer.cs">
       <DependentUpon>202406020748488_changed type of Department to string in Designation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406030835059_practice model removed.cs" />
+    <Compile Include="Migrations\202406030835059_practice model removed.Designer.cs">
+      <DependentUpon>202406030835059_practice model removed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406030858308_Employee Added.cs" />
+    <Compile Include="Migrations\202406030858308_Employee Added.Designer.cs">
+      <DependentUpon>202406030858308_Employee Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406030918301_updated Employee Model.cs" />
+    <Compile Include="Migrations\202406030918301_updated Employee Model.Designer.cs">
+      <DependentUpon>202406030918301_updated Employee Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406030939048_added Username for Employee.cs" />
+    <Compile Include="Migrations\202406030939048_added Username for Employee.Designer.cs">
+      <DependentUpon>202406030939048_added Username for Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406031113155_AddedUserProfileImage.cs" />
+    <Compile Include="Migrations\202406031113155_AddedUserProfileImage.Designer.cs">
+      <DependentUpon>202406031113155_AddedUserProfileImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406031358004_changed type.cs" />
+    <Compile Include="Migrations\202406031358004_changed type.Designer.cs">
+      <DependentUpon>202406031358004_changed type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\DesignationModel.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\HolidayModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -314,6 +341,11 @@
     <Content Include="Views\Designation\Details.cshtml" />
     <Content Include="Views\Designation\Edit.cshtml" />
     <Content Include="Views\Designation\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -366,6 +398,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406020748488_changed type of Department to string in Designation.resx">
       <DependentUpon>202406020748488_changed type of Department to string in Designation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406030835059_practice model removed.resx">
+      <DependentUpon>202406030835059_practice model removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406030858308_Employee Added.resx">
+      <DependentUpon>202406030858308_Employee Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406030918301_updated Employee Model.resx">
+      <DependentUpon>202406030918301_updated Employee Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406030939048_added Username for Employee.resx">
+      <DependentUpon>202406030939048_added Username for Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406031113155_AddedUserProfileImage.resx">
+      <DependentUpon>202406031113155_AddedUserProfileImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406031358004_changed type.resx">
+      <DependentUpon>202406031358004_changed type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
