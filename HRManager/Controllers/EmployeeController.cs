@@ -135,37 +135,33 @@ namespace HRManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "EmployeeID,Username,FirstName,LastName,Email,JoiningDate,Phone,Department,Designation")] Employee employee, HttpPostedFileBase ProfilePicture)
+        public async Task<ActionResult> Edit([Bind(Include = "EmployeeID,Username,FirstName,LastName,Email,JoiningDate,Phone,Department,Designation,ProfilePicture")] Employee employee, HttpPostedFileBase ProfilePictureFile)
         {
-
             // Create a SelectList for the DropDownListFor
             ViewBag.CustomDepartment = new SelectList(db.DepartmentModels, "DepartmentName", "DepartmentName");
 
             // Create a SelectList for the DropDownListFor
             ViewBag.CustomDesignation = new SelectList(db.DesignationModels, "DesignationName", "DesignationName");
 
-            if (ProfilePicture != null && ProfilePicture.ContentLength > 0)
+            if (ModelState.IsValid)
             {
-                // Read the uploaded image file into a byte array
-                using (var binaryReader = new BinaryReader(ProfilePicture.InputStream))
+                if (ProfilePictureFile != null && ProfilePictureFile.ContentLength > 0)
                 {
-                    employee.ProfilePicture = binaryReader.ReadBytes(ProfilePicture.ContentLength);
+                    // Read the uploaded image file into a byte array
+                    using (var binaryReader = new BinaryReader(ProfilePictureFile.InputStream))
+                    {
+                        employee.ProfilePicture = binaryReader.ReadBytes(ProfilePictureFile.ContentLength);
+                    }
                 }
 
-                if (ModelState.IsValid)
-                {
-                    db.Entry(employee).State = EntityState.Modified;
-                    await db.SaveChangesAsync();
-                    return RedirectToAction("Index");
-                }
-            }
-            else
-            {
-                ModelState.AddModelError("", "Profile Image is required");
+                db.Entry(employee).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
 
             return View(employee);
         }
+
 
         // GET: Employee/Delete/5
         public async Task<ActionResult> Delete(int? id)
