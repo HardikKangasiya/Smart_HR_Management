@@ -56,17 +56,11 @@ namespace HRManager.Controllers
         // GET: Employee/Create
         public ActionResult Create()
         {
-            // Get the department list
-            List<DepartmentModel> departments = db.DepartmentModels.ToList();
+            // Create a SelectList for the DropDownListFor
+            ViewBag.Department = new SelectList(db.DepartmentModels, "DepartmentName", "DepartmentName");
 
             // Create a SelectList for the DropDownListFor
-            ViewBag.Department = departments;
-
-            // Get the designation list
-            List<DesignationModel> designations = db.DesignationModels.ToList();
-
-            // Create a SelectList for the DropDownListFor
-            ViewBag.Designation = designations;
+            ViewBag.Designation = new SelectList(db.DesignationModels, "DesignationName", "DesignationName");
 
             return View();
         }
@@ -77,17 +71,13 @@ namespace HRManager.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "EmployeeID,Username,FirstName,LastName,Email,JoiningDate,Phone,Department,Designation")] Employee employee, HttpPostedFileBase ProfilePicture)
-        {   // Get the department list
-            List<DepartmentModel> departments = db.DepartmentModels.ToList();
+        {   
 
             // Create a SelectList for the DropDownListFor
-            ViewBag.Department = departments;
-
-            // Get the designation list
-            List<DesignationModel> designations = db.DesignationModels.ToList();
+            ViewBag.Department = new SelectList(db.DepartmentModels, "DepartmentName", "DepartmentName");
 
             // Create a SelectList for the DropDownListFor
-            ViewBag.Designation = designations;
+            ViewBag.Designation = new SelectList(db.DesignationModels, "DesignationName", "DesignationName");
 
             // Check if an image was uploaded
             if (ProfilePicture != null && ProfilePicture.ContentLength > 0)
@@ -121,17 +111,11 @@ namespace HRManager.Controllers
         // GET: Employee/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            // Get the department list
-            List<DepartmentModel> departments = db.DepartmentModels.ToList();
+            // Create a SelectList for the DropDownListFor
+            ViewBag.CustomDepartment = new SelectList(db.DepartmentModels, "DepartmentName", "DepartmentName");
 
             // Create a SelectList for the DropDownListFor
-            ViewBag.CustomDepartment = new SelectList(departments, "DepartmentName", "DepartmentName");
-
-            // Get the designation list
-            List<DesignationModel> designations = db.DesignationModels.ToList();
-
-            // Create a SelectList for the DropDownListFor
-            ViewBag.CustomDesignation = new SelectList(designations, "DesignationName", "DesignationName");
+            ViewBag.CustomDesignation = new SelectList(db.DesignationModels, "DesignationName", "DesignationName");
 
             if (id == null)
             {
@@ -142,6 +126,7 @@ namespace HRManager.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.JoiningDate_string = employee.JoiningDate.ToString("yyyy-MM-ddTHH:mm");
             return View(employee);
         }
 
@@ -150,26 +135,35 @@ namespace HRManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "EmployeeID,Username,FirstName,LastName,Email,JoiningDate,Phone,Department,Designation")] Employee employee)
+        public async Task<ActionResult> Edit([Bind(Include = "EmployeeID,Username,FirstName,LastName,Email,JoiningDate,Phone,Department,Designation")] Employee employee, HttpPostedFileBase ProfilePicture)
         {
-            // Get the department list
-            List<DepartmentModel> departments = db.DepartmentModels.ToList();
 
             // Create a SelectList for the DropDownListFor
-            ViewBag.CustomDepartment = new SelectList(departments, "DepartmentName", "DepartmentName");
-
-            // Get the designation list
-            List<DesignationModel> designations = db.DesignationModels.ToList();
+            ViewBag.CustomDepartment = new SelectList(db.DepartmentModels, "DepartmentName", "DepartmentName");
 
             // Create a SelectList for the DropDownListFor
-            ViewBag.CustomDesignation = new SelectList(designations, "DesignationName", "DesignationName");
+            ViewBag.CustomDesignation = new SelectList(db.DesignationModels, "DesignationName", "DesignationName");
 
-            if (ModelState.IsValid)
+            if (ProfilePicture != null && ProfilePicture.ContentLength > 0)
             {
-                db.Entry(employee).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                // Read the uploaded image file into a byte array
+                using (var binaryReader = new BinaryReader(ProfilePicture.InputStream))
+                {
+                    employee.ProfilePicture = binaryReader.ReadBytes(ProfilePicture.ContentLength);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    db.Entry(employee).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
             }
+            else
+            {
+                ModelState.AddModelError("", "Profile Image is required");
+            }
+
             return View(employee);
         }
 

@@ -70,7 +70,7 @@
                     <div class="form-group col-md-6">
                         <label class="control-label"><strong>@Html.DisplayNameFor(model => model.Department)</strong> <span class="text-danger">*</span></label>
                         <div>
-                            @Html.DropDownListFor(model => model.Department, new SelectList(ViewBag.Department, "DepartmentName", "DepartmentName") , "Select Department", new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.Department, (SelectList)ViewBag.Department , "Select Department", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="form-group col-md-6">
                         <label class="control-label"><strong>@Html.DisplayNameFor(model => model.Designation)</strong> <span class="text-danger">*</span></label>
                         <div>
-                            @Html.DropDownListFor(model => model.Designation, new SelectList(ViewBag.Designation, "DesignationName", "DesignationName"), "Select Designation", new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.Designation, (SelectList)ViewBag.Designation, "Select Designation", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
                         </div>
                     </div>

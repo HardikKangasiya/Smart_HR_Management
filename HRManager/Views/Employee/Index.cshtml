@@ -4,12 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Employee</h2>
-
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Employee</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </div>
+</div>
 <style>
     .card {
         position: relative; /* Ensure the card is the reference for popover positioning */
@@ -29,7 +31,7 @@
 
 </style>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         @foreach (var item in Model)
         {
@@ -73,11 +75,3 @@
         });
     });
 </script>
-
-
-
-
-
-
-
-
