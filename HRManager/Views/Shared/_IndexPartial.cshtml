@@ -1,0 +1,32 @@
+﻿@model IEnumerable<object>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    var excludeProperties = ViewData["ExcludeProperties"] as List<string>;
+    var Id = ViewData["Id"];
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>@ViewData["PageName"]</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+
+
+@if (Model.First() is HRManager.Models.Employee)
+{
+    @Html.Partial("_EmployeeCard", Model)
+}
+else
+{
+    @Html.Partial("_Table", Model)
+
+}
+
+

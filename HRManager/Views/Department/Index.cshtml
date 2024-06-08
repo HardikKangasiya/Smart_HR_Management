@@ -1,35 +1,7 @@
 ﻿@model IEnumerable<HRManager.Models.DepartmentModel>
 
 @{
-    ViewBag.Title = "Index";
+    var excludeProperties = new List<string> { "DepartmentID" }; // Add the properties you want to exclude here
 }
 
-<div class="row">
-    <div class="col-md-6">
-        <h2>Departments</h2>
-    </div>
-    <div class="col-md-6 text-right">
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
-    </div>
-</div>
-
-<table class="table">
-    <tr>
-        <th>#</th>
-        <th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
-        <th>Actions</th>
-    </tr>
-
-    @foreach (var item in Model.Select((value, index) => new { Value = value, Index = index + 1 }))
-    {
-        <tr>
-            <td>@item.Index</td>
-            <td>@Html.DisplayFor(modelItem => item.Value.DepartmentName)</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Value.DepartmentID }, new { @class = "btn btn-primary" })
-                &nbsp; <!-- Add non-breaking space -->
-                @Html.ActionLink("Delete", "Delete", new { id = item.Value.DepartmentID }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
-    }
-</table>
+@Html.Partial("_IndexPartial", Model, new ViewDataDictionary(this.ViewData) { { "PageName", "Departments" }, { "excludeProperties", excludeProperties }, { "Id", "DepartmentID" } })

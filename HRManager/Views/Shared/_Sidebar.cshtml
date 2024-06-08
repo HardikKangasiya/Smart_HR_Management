@@ -1,0 +1,88 @@
+﻿<aside id="sidebar">
+    <div class="d-flex">
+        <button class="toggle-btn" type="button">
+            <i class="lni lni-grid-alt"></i>
+        </button>
+        <div class="sidebar-logo">
+            <a href="/">HR Manager</a>
+        </div>
+    </div>
+    <ul class="sidebar-nav">
+        <li class="sidebar-item">
+            <a href="@Url.Action("Dashboard", "Home")" class="sidebar-link">
+                <i class="lni lni-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+               data-bs-target="#employee" aria-expanded="false" aria-controls="employee">
+                <i class="lni lni-user"></i>
+                <span>Employees</span>
+            </a>
+            <ul id="employee" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="/Employee" class="sidebar-link">All Employees</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Holiday" class="sidebar-link">Holidays</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Department" class="sidebar-link">Departments</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Designation" class="sidebar-link">Designations</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+               data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                <i class="lni lni-layout"></i>
+                <span>Multi Level</span>
+            </a>
+            <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                       data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                        Two Links
+                    </a>
+                    <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Link 1</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Link 2</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+                <i class="lni lni-popup"></i>
+                <span>Notification</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+                <i class="lni lni-cog"></i>
+                <span>Setting</span>
+            </a>
+        </li>
+    </ul>
+    <div class="sidebar-footer">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display: none;" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+        <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();" class="sidebar-link">
+            <i class="lni lni-exit"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+
+
+</aside>

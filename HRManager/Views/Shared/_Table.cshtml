@@ -1,0 +1,74 @@
+﻿@model IEnumerable<object>
+
+@{
+    var excludeProperties = ViewData["excludeProperties"] as List<string>;
+    var Id = ViewData["Id"];
+}
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>#</th>
+            @foreach (var prop in Model.First().GetType().GetProperties().Where(p => !excludeProperties.Contains(p.Name)))
+            {
+                var displayNameAttr = prop.GetCustomAttributes(typeof(System.ComponentModel.DisplayNameAttribute), true).FirstOrDefault() as System.ComponentModel.DisplayNameAttribute;
+                var displayName = displayNameAttr != null ? displayNameAttr.DisplayName : prop.Name;
+                <th>@displayName</th>
+                if (Model.First() is HRManager.Models.HolidayModel && prop.Name == "HolidayDate")
+                {
+                    <th>Day of Week</th>
+                }
+            }
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model.Select((value, index) => new { Value = value, Index = index + 1 }))
+        {
+            <tr>
+                <td>@item.Index</td>
+                @foreach (var prop in item.Value.GetType().GetProperties().Where(p => !excludeProperties.Contains(p.Name)))
+                {
+                    if (item.Value is HRManager.Models.HolidayModel && prop.Name == "HolidayDate")
+                    {
+                        var dateValue = prop.GetValue(item.Value);
+                        if (dateValue is DateTime)
+                        {
+                            <td>@(((DateTime)dateValue).ToString("d MMM yyyy"))</td>
+                            <td>@(((DateTime)dateValue).DayOfWeek)</td>
+                        }
+                    }
+                    else
+                    {
+                        <td>@prop.GetValue(item.Value)</td>
+                    }
+                }
+            <td>
+                @{
+                    var idProp = item.Value.GetType().GetProperty(Id.ToString());
+                    var idValue = idProp != null ? idProp.GetValue(item.Value) : null;
+                }
+                @if (item.Value is HRManager.Models.HolidayModel)
+                {
+                    var holidayDateProp = item.Value.GetType().GetProperty("HolidayDate");
+                    var holidayDateValue = holidayDateProp != null ? holidayDateProp.GetValue(item.Value) : null;
+                    if (holidayDateValue is DateTime && (DateTime)holidayDateValue > DateTime.Now)
+                    {
+                        @Html.Partial("_TableActionLink", idValue)
+                    }
+                }
+                else
+                {
+                    @Html.Partial("_TableActionLink", idValue)
+                }
+            </td>
+            </tr>
+        }
+
+
+    </table>
+}
+else
+{
+    <p>No data to display.</p>
+}

@@ -243,7 +243,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\cdn\rocket-loader.min.js" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\line-awesome.min.css" />
     <Content Include="assets\css\material.css" />
@@ -254,8 +253,6 @@
     <Content Include="assets\js\bootstrap.bundle.min.js" />
     <Content Include="assets\js\jquery-3.7.1.min.js" />
     <Content Include="assets\js\sidebar.js" />
-    <Content Include="assets\plugins\fontawesome\css\all.min.css" />
-    <Content Include="assets\plugins\fontawesome\css\fontawesome.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -322,7 +319,6 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\LoginPage.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
@@ -346,6 +342,11 @@
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Shared\_Table.cshtml" />
+    <Content Include="Views\Shared\_IndexPartial.cshtml" />
+    <Content Include="Views\Shared\_TableActionLink.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Shared\_EmployeeCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
