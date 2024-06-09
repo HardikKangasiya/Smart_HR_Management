@@ -18,7 +18,13 @@ namespace HRManager.Controllers
         // GET: Designation
         public async Task<ActionResult> Index()
         {
-            return View(await db.DesignationModels.ToListAsync());
+            ViewData = new ViewDataDictionary
+            {
+                ["excludeProperties"] = new List<string> { "DesignationID" },
+                ["Id"] = "DesignationID",
+                ["PageName"] = "Designations"
+            };
+            return View("~/Views/Shared/CRUD/_IndexPartial.cshtml", await db.DesignationModels.ToListAsync());
         }
 
         // GET: Designation/Details/5
@@ -115,7 +121,8 @@ namespace HRManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(designationModel);
+            ViewData["excludeProperties"] = new List<string> { "DesignationID" };
+            return View("~/Views/Shared/CRUD/_DeletePartial.cshtml", designationModel);
         }
 
         // POST: Designation/Delete/5

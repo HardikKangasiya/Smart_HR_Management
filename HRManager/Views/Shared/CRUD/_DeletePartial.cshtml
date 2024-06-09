@@ -1,0 +1,38 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "Delete";
+
+    var excludeProperties = ViewData["ExcludeProperties"] as List<string>;
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var prop in Model.GetType().GetProperties().Where(p => !excludeProperties.Contains(p.Name)))
+        {
+            var displayNameAttr = prop.GetCustomAttributes(typeof(System.ComponentModel.DisplayNameAttribute), true).FirstOrDefault() as System.ComponentModel.DisplayNameAttribute;
+            var displayName = displayNameAttr != null ? displayNameAttr.DisplayName : prop.Name;
+            <dt>
+                @displayName
+            </dt>
+            <dd>
+                @prop.GetValue(Model)
+            </dd>
+
+        }
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            &nbsp;
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

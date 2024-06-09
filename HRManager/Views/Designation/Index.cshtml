@@ -1,7 +1,0 @@
-﻿@model IEnumerable<HRManager.Models.DesignationModel>
-
-@{
-    var excludeProperties = new List<string> { "DesignationID" }; // Add the properties you want to exclude here
-}
-
-@Html.Partial("_IndexPartial", Model, new ViewDataDictionary(this.ViewData) { { "PageName", "Designations" }, { "excludeProperties", excludeProperties }, { "Id", "DesignationID" } })

@@ -11,7 +11,7 @@ using HRManager.Models;
 
 namespace HRManager.Controllers
 {
-    [Authorize]
+    
     public class HolidayController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,7 +19,13 @@ namespace HRManager.Controllers
         // GET: Holiday
         public async Task<ActionResult> Index()
         {
-            return View(await db.HolidayModels.ToListAsync());
+            ViewData = new ViewDataDictionary
+            {
+                ["excludeProperties"] = new List<string> { "HolidayID" },
+                ["Id"] = "HolidayID",
+                ["PageName"] = "Holidays"
+            };
+            return View("~/Views/Shared/CRUD/_IndexPartial.cshtml", await db.HolidayModels.ToListAsync());
         }
 
         // GET: Holiday/Create
@@ -90,7 +96,9 @@ namespace HRManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(holidayModel);
+            ViewData["excludeProperties"] = new List<string> { "HolidayID" };
+            return View("~/Views/Shared/CRUD/_DeletePartial.cshtml", holidayModel);
+
         }
 
         // POST: Holiday/Delete/5

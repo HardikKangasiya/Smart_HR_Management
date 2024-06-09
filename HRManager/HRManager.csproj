@@ -325,28 +325,19 @@
     <Content Include="Views\Account\RegisterPage.cshtml" />
     <Content Include="Views\Account\UpdateProfile.cshtml" />
     <Content Include="Views\Department\Create.cshtml" />
-    <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
-    <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Holiday\Create.cshtml" />
-    <Content Include="Views\Holiday\Delete.cshtml" />
     <Content Include="Views\Holiday\Edit.cshtml" />
-    <Content Include="Views\Holiday\Index.cshtml" />
     <Content Include="Views\Designation\Create.cshtml" />
-    <Content Include="Views\Designation\Delete.cshtml" />
-    <Content Include="Views\Designation\Details.cshtml" />
     <Content Include="Views\Designation\Edit.cshtml" />
-    <Content Include="Views\Designation\Index.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Shared\_Table.cshtml" />
-    <Content Include="Views\Shared\_IndexPartial.cshtml" />
+    <Content Include="Views\Shared\CRUD\_IndexPartial.cshtml" />
     <Content Include="Views\Shared\_TableActionLink.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\Shared\_EmployeeCard.cshtml" />
+    <Content Include="Views\Shared\CRUD\_EmployeeCard.cshtml" />
+    <Content Include="Views\Shared\CRUD\_DeletePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

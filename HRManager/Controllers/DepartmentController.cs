@@ -19,7 +19,13 @@ namespace HRManager.Controllers
         // GET: Department
         public async Task<ActionResult> Index()
         {
-            return View(await db.DepartmentModels.ToListAsync());
+            ViewData = new ViewDataDictionary
+            {
+                ["excludeProperties"] = new List<string> { "DepartmentID" },
+                ["Id"] = "DepartmentID",
+                ["PageName"] = "Departments"
+            };
+            return View("~/Views/Shared/CRUD/_IndexPartial.cshtml", await db.DepartmentModels.ToListAsync());
         }
 
         // GET: Department/Create
@@ -88,7 +94,8 @@ namespace HRManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(departmentModel);
+            ViewData["excludeProperties"] = new List<string> { "DepartmentID" };
+            return View("~/Views/Shared/CRUD/_DeletePartial.cshtml", departmentModel);
         }
 
         // POST: Department/Delete/5

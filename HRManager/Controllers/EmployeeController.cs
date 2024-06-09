@@ -19,7 +19,8 @@ namespace HRManager.Controllers
         // GET: Employee
         public async Task<ActionResult> Index()
         {
-            return View(await db.Employee.ToListAsync());
+            ViewData["PageName"] = "Employee";
+            return View("~/Views/Shared/CRUD/_IndexPartial.cshtml", await db.Employee.ToListAsync());
         }
 
         [HttpGet]
@@ -175,7 +176,8 @@ namespace HRManager.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            ViewData["excludeProperties"] = new List<string> { "DesignationID", "ProfilePicture" };
+            return View("~/Views/Shared/CRUD/_DeletePartial.cshtml", employee);
         }
 
         // POST: Employee/Delete/5
