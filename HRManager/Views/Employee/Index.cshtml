@@ -1,7 +1,0 @@
-﻿@model IEnumerable<HRManager.Models.Employee>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-@Html.Partial("_IndexPartial", Model, new ViewDataDictionary(this.ViewData) { { "PageName", "Employee" } })

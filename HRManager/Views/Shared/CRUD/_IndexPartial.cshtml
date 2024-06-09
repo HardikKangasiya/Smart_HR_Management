@@ -5,7 +5,7 @@
 }
 
 @{
-    var excludeProperties = ViewData["ExcludeProperties"] as List<string>;
+    var excludeProperties = ViewData["excludeProperties"] as List<string>;
     var Id = ViewData["Id"];
 }
 
@@ -18,15 +18,21 @@
     </div>
 </div>
 
-
-@if (Model.First() is HRManager.Models.Employee)
+@if (Model != null && Model.Any())
 {
-    @Html.Partial("_EmployeeCard", Model)
+    if (Model.First() is HRManager.Models.Employee)
+    {
+        @Html.Partial("~/Views/Shared/CRUD/_EmployeeCard.cshtml", Model)
+    }
+    else
+    {
+        @Html.Partial("_Table", Model)
+
+    }
 }
 else
 {
-    @Html.Partial("_Table", Model)
-
+    <p>No data to display.</p>
 }
 
 
