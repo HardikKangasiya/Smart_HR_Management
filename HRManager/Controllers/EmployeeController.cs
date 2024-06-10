@@ -12,6 +12,7 @@ using System.IO;
 
 namespace HRManager.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

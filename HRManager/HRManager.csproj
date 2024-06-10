@@ -173,7 +173,6 @@
     <Compile Include="Controllers\DesignationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HolidayController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="CustomValidation\IntegerString.cs" />
     <Compile Include="Global.asax.cs">
@@ -243,16 +242,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\css\bootstrap.min.css" />
-    <Content Include="assets\css\line-awesome.min.css" />
-    <Content Include="assets\css\material.css" />
-    <Content Include="assets\css\sidebar.css" />
-    <Content Include="assets\css\style.css" />
-    <Content Include="assets\img\logo2.png" />
-    <Content Include="assets\js\app.js" />
-    <Content Include="assets\js\bootstrap.bundle.min.js" />
-    <Content Include="assets\js\jquery-3.7.1.min.js" />
-    <Content Include="assets\js\sidebar.js" />
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\line-awesome.min.css" />
+    <Content Include="Content\assets\css\material.css" />
+    <Content Include="Content\assets\css\sidebar.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\img\logo2.png" />
+    <Content Include="Content\assets\js\app.js" />
+    <Content Include="Content\assets\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\js\jquery-3.7.1.min.js" />
+    <Content Include="Content\assets\js\sidebar.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -300,9 +299,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />

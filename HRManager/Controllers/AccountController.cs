@@ -104,6 +104,7 @@ namespace HRManager.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            returnUrl = "/Employee/Index";
             ViewBag.ReturnUrl = returnUrl;
             return View("LoginPage");
         }
@@ -439,7 +440,7 @@ namespace HRManager.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Employee");
         }
 
         //

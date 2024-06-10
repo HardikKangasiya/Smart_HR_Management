@@ -13,15 +13,15 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-<div class="input-block mb-4">
-    <label for="@Html.NameFor(m => m.Email)" class="col-form-label">
-        @Html.DisplayNameFor(m => m.Email)
-        <span class="mandatory">*</span>
-    </label>
     <div class="input-block mb-4">
-        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        <label for="@Html.NameFor(m => m.Email)" class="col-form-label">
+            @Html.DisplayNameFor(m => m.Email)
+            <span class="mandatory">*</span>
+        </label>
+        <div class="input-block mb-4">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
     </div>
-</div>
     <div class="input-block mb-4">
         <label for="@Html.NameFor(m => m.Password)" class="col-form-label">
             @Html.DisplayNameFor(m => m.Password)
@@ -42,6 +42,9 @@
     </div>
     <div class="input-block mb-4 text-center">
         <button class="btn btn-primary account-btn" type="submit">Register</button>
+    </div>
+    <div class="account-footer">
+        <p>Already Have an account? @Html.ActionLink("Login", "Login")</p>
     </div>
 }
 

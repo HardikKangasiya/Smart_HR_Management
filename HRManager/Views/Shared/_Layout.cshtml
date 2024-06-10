@@ -9,14 +9,12 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link href="~/assets/css/sidebar.css" rel="stylesheet" />
-    <!-- jQuery for Dropdown in more button for Employee Index -->
-    <script src="~/assets/js/jquery-3.7.1.min.js"></script>
+    <link href="~/Content/assets/css/sidebar.css" rel="stylesheet" />
+    <script src="~/Content/assets/js/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
     <div class="wrapper">
-
         @Html.Partial("_Sidebar")
 
         <div class="main p-3">
@@ -30,7 +28,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="~/assets/js/sidebar.js"></script>
+    <script src="~/Content/assets/js/sidebar.js"></script>
 
 </body>
 </html>

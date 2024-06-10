@@ -11,6 +11,7 @@ using HRManager.Models;
 
 namespace HRManager.Controllers
 {
+    [Authorize]
     public class DesignationController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

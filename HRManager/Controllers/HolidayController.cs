@@ -11,7 +11,7 @@ using HRManager.Models;
 
 namespace HRManager.Controllers
 {
-    
+    [Authorize]
     public class HolidayController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
