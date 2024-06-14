@@ -9,7 +9,10 @@
         <h2>@ViewData["PageName"]</h2>
     </div>
     <div class="col-md-6 text-right">
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        }
     </div>
 </div>
 

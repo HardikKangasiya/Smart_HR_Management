@@ -111,7 +111,7 @@ namespace HRManager.Models
         public string Email { get; set; }
     }
 
-    public class UpdateProfileViewModel
+    /*public class UpdateProfileViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -121,6 +121,6 @@ namespace HRManager.Models
         public string Company { get; set; }
         public string Department { get; set; }
         public string Designation { get; set; }
-    }
+    }*/
 
 }

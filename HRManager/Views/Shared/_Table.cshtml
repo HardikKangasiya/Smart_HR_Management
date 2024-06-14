@@ -20,7 +20,10 @@
                     <th>Day of Week</th>
                 }
             }
-            <th>Actions</th>
+            @if (User.IsInRole("Admin"))
+                {
+                    <th>Actions</th>
+                }
         </tr>
 
         @foreach (var item in Model.Select((value, index) => new { Value = value, Index = index + 1 }))
@@ -48,19 +51,12 @@
                     var idProp = item.Value.GetType().GetProperty(Id.ToString());
                     var idValue = idProp != null ? idProp.GetValue(item.Value) : null;
                 }
-                @if (item.Value is HRManager.Models.HolidayModel)
-                {
-                    var holidayDateProp = item.Value.GetType().GetProperty("HolidayDate");
-                    var holidayDateValue = holidayDateProp != null ? holidayDateProp.GetValue(item.Value) : null;
-                    if (holidayDateValue is DateTime && (DateTime)holidayDateValue > DateTime.Now)
-                    {
-                        @Html.Partial("_TableActionLink", idValue)
-                    }
-                }
-                else
+
+                @if (User.IsInRole("Admin"))
                 {
                     @Html.Partial("_TableActionLink", idValue)
                 }
+
             </td>
             </tr>
         }

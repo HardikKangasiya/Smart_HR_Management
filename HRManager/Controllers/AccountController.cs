@@ -28,7 +28,7 @@ namespace HRManager.Controllers
             SignInManager = signInManager;
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public ActionResult UpdateProfile()
         {
             var userId = User.Identity.GetUserId();
@@ -73,7 +73,7 @@ namespace HRManager.Controllers
 
             return View(model);
         }
-
+*/
 
         public ApplicationSignInManager SignInManager
         {
@@ -116,6 +116,7 @@ namespace HRManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            returnUrl = "/Employee";
             if (!ModelState.IsValid)
             {
                 return View("LoginPage",model);
@@ -203,6 +204,8 @@ namespace HRManager.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // Add user role
+                    await UserManager.AddToRoleAsync(user.Id, "Employee");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -211,7 +214,7 @@ namespace HRManager.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Employee");
                 }
                 AddErrors(result);
             }

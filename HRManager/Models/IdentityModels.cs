@@ -10,18 +10,6 @@ namespace HRManager.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        // Add additional profile data for application users by adding properties to this class
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmployeeID { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime JoiningDate { get; set; }
-        public string Phone { get; set; }
-        public string Company { get; set; }
-        public string Department { get; set; }
-        public string Designation { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -39,10 +27,6 @@ namespace HRManager.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Explicitly map JoiningDate to datetime2
-            modelBuilder.Entity<ApplicationUser>()
-                .Property(u => u.JoiningDate)
-                .HasColumnType("datetime2");
 
             modelBuilder.Entity<Employee>()
                 .Property(u => u.JoiningDate)
