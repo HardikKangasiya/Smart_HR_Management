@@ -178,6 +178,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DesignationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -243,8 +244,17 @@
     <Compile Include="Migrations\202406140524428_Updated user model.Designer.cs">
       <DependentUpon>202406140524428_Updated user model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406140620413_added dashboard.cs" />
+    <Compile Include="Migrations\202406140620413_added dashboard.Designer.cs">
+      <DependentUpon>202406140620413_added dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406140636064_updated dashboard.cs" />
+    <Compile Include="Migrations\202406140636064_updated dashboard.Designer.cs">
+      <DependentUpon>202406140636064_updated dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\DesignationModel.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -348,6 +358,7 @@
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\CRUD\_EmployeeCard.cshtml" />
     <Content Include="Views\Shared\CRUD\_DeletePartial.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -421,6 +432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406140524428_Updated user model.resx">
       <DependentUpon>202406140524428_Updated user model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406140620413_added dashboard.resx">
+      <DependentUpon>202406140620413_added dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406140636064_updated dashboard.resx">
+      <DependentUpon>202406140636064_updated dashboard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

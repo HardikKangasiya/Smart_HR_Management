@@ -51,5 +51,7 @@ namespace HRManager.Models
         public DbSet<HRManager.Models.DesignationModel> DesignationModels { get; set; }
 
         public DbSet<HRManager.Models.Employee> Employee { get; set; }
+
+        public System.Data.Entity.DbSet<HRManager.Models.DashboardViewModel> DashboardViewModels { get; set; }
     }
 }

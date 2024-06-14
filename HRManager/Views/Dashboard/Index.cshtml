@@ -1,0 +1,126 @@
+﻿@model HRManager.Models.DashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h1 class="mb-4">Admin Dashboard</h1>
+
+<div class="row">
+    <!-- Employee Statistics -->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Employees</h5>
+                <p class="card-text">@Model.TotalEmployees</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">New Hires This Month</h5>
+                <p class="card-text">@Model.NewHires</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Active Employees</h5>
+                <p class="card-text">@Model.ActiveEmployees</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Employees on Leave</h5>
+                <p class="card-text">@Model.EmployeesOnLeave</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Statistics -->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Departments</h5>
+                <p class="card-text">@Model.TotalDepartments</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Avg. Employees per Dept.</h5>
+                <p class="card-text">@Model.AvgEmployeesPerDepartment.ToString("F2")</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leave Management -->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Leave Requests</h5>
+                <p class="card-text">@Model.LeaveRequests</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Approved Leave Requests</h5>
+                <p class="card-text">@Model.ApprovedLeaves</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Pending Leave Requests</h5>
+                <p class="card-text">@Model.PendingLeaves</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Rejected Leave Requests</h5>
+                <p class="card-text">@Model.RejectedLeaves</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Recent Activities</h5>
+                <ul class="list-group list-group-flush">
+                    @foreach (var activity in Model.RecentActivities)
+                    {
+                        <li class="list-group-item">@activity</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Announcements -->
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Latest Announcements</h5>
+                <ul class="list-group list-group-flush">
+                    @foreach (var announcement in Model.Announcements)
+                    {
+                        <li class="list-group-item">@announcement</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
