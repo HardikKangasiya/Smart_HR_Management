@@ -359,6 +359,7 @@
     <Content Include="Views\Shared\CRUD\_EmployeeCard.cshtml" />
     <Content Include="Views\Shared\CRUD\_DeletePartial.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_Card.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

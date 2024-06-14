@@ -4,94 +4,25 @@
     ViewBag.Title = "Dashboard";
 }
 
-<h1 class="mb-4">Admin Dashboard</h1>
+<h1 class="mb-4">Dashboard</h1>
 
 <div class="row">
     <!-- Employee Statistics -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Employees</h5>
-                <p class="card-text">@Model.TotalEmployees</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">New Hires This Month</h5>
-                <p class="card-text">@Model.NewHires</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Active Employees</h5>
-                <p class="card-text">@Model.ActiveEmployees</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Employees on Leave</h5>
-                <p class="card-text">@Model.EmployeesOnLeave</p>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Total Employees" }, { "Text", Model.TotalEmployees.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "New Hires This Month" }, { "Text", Model.NewHires.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Active Employees" }, { "Text", Model.ActiveEmployees.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Employees on Leave" }, { "Text", Model.EmployeesOnLeave.ToString() } })
 
     <!-- Department Statistics -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Departments</h5>
-                <p class="card-text">@Model.TotalDepartments</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Avg. Employees per Dept.</h5>
-                <p class="card-text">@Model.AvgEmployeesPerDepartment.ToString("F2")</p>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Total Departments" }, { "Text", Model.TotalDepartments.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Avg. Employees per Dept." }, { "Text", Model.AvgEmployeesPerDepartment.ToString("F2") } })
 
     <!-- Leave Management -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Leave Requests</h5>
-                <p class="card-text">@Model.LeaveRequests</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Approved Leave Requests</h5>
-                <p class="card-text">@Model.ApprovedLeaves</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Pending Leave Requests</h5>
-                <p class="card-text">@Model.PendingLeaves</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Rejected Leave Requests</h5>
-                <p class="card-text">@Model.RejectedLeaves</p>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Total Leave Requests" }, { "Text", Model.LeaveRequests.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Approved Leave Requests" }, { "Text", Model.ApprovedLeaves.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Pending Leave Requests" }, { "Text", Model.PendingLeaves.ToString() } })
+    @Html.Partial("_Card", new ViewDataDictionary { { "Title", "Rejected Leave Requests" }, { "Text", Model.RejectedLeaves.ToString() } })
+
 
     <!-- Recent Activities -->
     <div class="col-12 mb-4">

@@ -57,7 +57,7 @@ namespace HRManager.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            returnUrl = "/Employee/Index";
+            returnUrl = "/Dashboard";
             ViewBag.ReturnUrl = returnUrl;
             return View("LoginPage");
         }
@@ -69,7 +69,7 @@ namespace HRManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            returnUrl = "/Employee";
+            returnUrl = "/Dashboard";
             if (!ModelState.IsValid)
             {
                 return View("LoginPage",model);
@@ -167,7 +167,7 @@ namespace HRManager.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Employee");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 AddErrors(result);
             }

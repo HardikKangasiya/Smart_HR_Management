@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace HRManager.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
